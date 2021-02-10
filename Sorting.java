@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Sorting {
 
+    //Codigo extraído de: https://www.geeksforgeeks.org/gnome-sort-a-stupid-one/
     public static void gnomeSort(Comparable<Integer>[] list, int n){
         
         int index = 0;
@@ -9,7 +10,7 @@ public class Sorting {
         while(index < n){
             if(index == 0)
                 index++;
-            if((int) list[index] >= (int) list[index -1])
+            if(!(list[index].compareTo((int)list[index-1])  == -1))
                 index++;
             else{
                 int temp = 0;
@@ -22,6 +23,7 @@ public class Sorting {
         return;
     }
     
+    //Codigo extraído de: https://www.geeksforgeeks.org/merge-sort/
     public static void mergeSort(Comparable<Integer>[] list, int low, int high){
         
         if(low>=high){
@@ -37,6 +39,7 @@ public class Sorting {
         
     }
 
+//Codigo extraído de: https://www.geeksforgeeks.org/merge-sort/
     private static void merge(Comparable<Integer>[]list, int low, int middle, int high){
         int n1 = middle - low + 1;
         int n2 = high-middle;
@@ -57,7 +60,7 @@ public class Sorting {
         int k = low;
 
         while(i<n1 && j<n2){
-            if((Integer) L[i] <= (Integer) R[j]){
+            if(L[i].compareTo((int) R[j]) != 1){
                 list[k] = L[i];
                 i++;
             }
@@ -81,6 +84,7 @@ public class Sorting {
         }
     }
 
+    //Codigo extraido de: https://www.geeksforgeeks.org/quick-sort/
     public static void quickSort(Comparable<Integer>[] list, int low, int high){
 
 
@@ -93,6 +97,7 @@ public class Sorting {
         
     }
 
+    //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
     public static void radixSort(Comparable<Integer>[] list){
         int m = Sorting.getMax(list);
 
@@ -101,11 +106,12 @@ public class Sorting {
         }
     }
     
+    //Codigo extraido de: https://www.geeksforgeeks.org/bubble-sort/
     public static void bubbleSort(Comparable<Integer>[] list){
         int n = list.length;
         for(int i = 0; i < n-1;i++){
             for(int j = 0; j < n-i-1; j++){
-                if( (int) list[j] > (int) list[j+1]){
+                if(list[j].compareTo((Integer) list[j+1]) == 1){
 
                     int temp = (int) list[j];
                     list[j] = list[j+1];
@@ -115,12 +121,13 @@ public class Sorting {
         }
     }
 
+    //Codigo extraido de: https://www.geeksforgeeks.org/quick-sort/
     private static int partitionqS(Comparable<Integer>[] list, int low, int high){
         int pivot = (int) list[high];
         int i = (low-1); // es el indice del elemento mas pequeño.
         
         for(int x = low; x<high; x++){
-            if((int) list[x] < pivot){
+            if((list[x].compareTo(pivot)) == -1){
                 i++;
 
                 int temp = (int) list[i];
@@ -137,7 +144,7 @@ public class Sorting {
     }
 
     
-
+    //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
     private static void countSort(Comparable<Integer>[] list, int n, int exp){
         Comparable<Integer>[] output = new Integer[n];
         int i;
@@ -162,12 +169,13 @@ public class Sorting {
         }
     }
 
+    //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
     private static int getMax(Comparable<Integer>[] list){
         int n = list.length;
         int mx = (Integer) list[0];
 
         for(int i = 1; i<n; i++){
-            if((Integer)list[i] > mx)
+            if(list[i].compareTo(mx) == 1)
                 mx = (Integer) list[i];
         }
 

@@ -22,11 +22,12 @@ public class Main {
                 ex.printStackTrace();
             }
             
-            //Sorting.gnomeSort(data, data.length);
-            Sorting.mergeSort(data, 0, data.length-1);
+            Sorting.gnomeSort(data, data.length);
+            //Sorting.mergeSort(data, 0, data.length-1);
             //Sorting.quickSort(data, 0, data.length-1);
-           // Sorting.radixSort(data);
+            //Sorting.radixSort(data);
             //Sorting.bubbleSort(data);
+            
             for(int j = 0; j<data.length;j++){
                 System.out.println(data[j]+" ");
             }
