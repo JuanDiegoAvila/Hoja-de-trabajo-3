@@ -2,18 +2,89 @@ import java.util.*;
 
 public class Sorting {
 
-    public static void gnomeSort(Comparable<Integer>[] list){
-        //avila
+    public static void gnomeSort(Comparable<Integer>[] list, int n){
+        
+        int index = 0;
+
+        while(index < n){
+            if(index == 0)
+                index++;
+            if((int) list[index] >= (int) list[index -1])
+                index++;
+            else{
+                int temp = 0;
+                temp = (int) list[index];
+                list[index] = list[index-1];
+                list[index -1] = temp;
+                index--;
+            }
+        }
+        return;
     }
     
-    public static void mergeSort(Comparable<Integer>[] list){
-        //daniel
+    public static void mergeSort(Comparable<Integer>[] list, int low, int high){
+        
+        if(low>=high){
+            return;
+        }
+            
+            int middle = low + (high - low)/2;
+
+            mergeSort(list, low, middle);
+            mergeSort(list, middle+1, high);
+
+            merge(list, low, middle, high);
+        
+    }
+
+    private static void merge(Comparable<Integer>[]list, int low, int middle, int high){
+        int n1 = middle - low + 1;
+        int n2 = high-middle;
+
+        Comparable<Integer> L[] = new Integer[n1];
+        Comparable<Integer> R[] = new Integer[n2];
+
+        for(int i = 0; i<n1; i++){
+            L[i] = list[low+i];
+        }
+
+        for(int j = 0; j<n2; j++){
+            R[j] = list[middle + 1 + j];
+        }
+
+        int i = 0; int j = 0;
+
+        int k = low;
+
+        while(i<n1 && j<n2){
+            if((Integer) L[i] <= (Integer) R[j]){
+                list[k] = L[i];
+                i++;
+            }
+            else{
+                list[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i<n1){
+            list[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while(j < n2){
+            list[k] = R[j];
+            j++;
+            k++;
+        }
     }
 
     public static void quickSort(Comparable<Integer>[] list, int low, int high){
-        //avila
 
-        if(low<high){
+
+        if(low < high){
             int pi = partitionqS(list, low, high);
             
             quickSort(list, low, pi-1);
@@ -31,7 +102,17 @@ public class Sorting {
     }
     
     public static void bubbleSort(Comparable<Integer>[] list){
-        //avila/dani
+        int n = list.length;
+        for(int i = 0; i < n-1;i++){
+            for(int j = 0; j < n-i-1; j++){
+                if( (int) list[j] > (int) list[j+1]){
+
+                    int temp = (int) list[j];
+                    list[j] = list[j+1];
+                    list[j+1] = temp;
+                }
+            }
+        }
     }
 
     private static int partitionqS(Comparable<Integer>[] list, int low, int high){
