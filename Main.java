@@ -32,7 +32,6 @@ public class Main {
                 System.out.println(data[j]+" ");
             }
             System.out.println();
-            //Sorting.bubbleSort(data);
         }            
     }
 }
