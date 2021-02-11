@@ -40,12 +40,21 @@ public class SortingTest {
 
     @Test
     public void radixSort() {
+        Integer[] data = {100, 4560, 584, 63, 1200};
+        Integer[] expected = {63,100,584,1200,4560};
+
+        Sorting.radixSort(data);
+        assertArrayEquals(expected, data);
 
     }
 
     @Test
     public void bubbleSort() {
+        Integer[] data = {2501, 488, 14, 233, 10000, 183};
+        Integer[] expected = {14, 183, 233, 488, 2501, 10000};
 
+        Sorting.bubbleSort(data);
 
+        assertArrayEquals(expected, data);
     }
 }
