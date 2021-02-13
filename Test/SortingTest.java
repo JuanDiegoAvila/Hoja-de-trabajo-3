@@ -1,4 +1,6 @@
 import org.junit.Test;
+import src.Sorting;
+
 import java.io.File;
 import java.util.Scanner;
 import static org.junit.Assert.*;
@@ -8,44 +10,13 @@ public class SortingTest {
     public Comparable<Integer>[] list;
     @Test
     public void gnomeSort() {
-        /*Integer[] data = {3,7,5,1,6};
-        Integer[] expected = {1,3,5,6,7};
 
-        Sorting.gnomeSort(data, data.length);
+        Integer[] data = {1000,78,66,300,2};
+        Integer[] expected = {2,66,78,300,100};
 
-        assertArrayEquals(expected, data);*/
+        Sorting.mergeSort(data,0, data.length-1);
 
-        Generador generador = new Generador();
-        Integer[] data;
-        //generador.generar(50);
-        data = new Integer[50];
-        /*try{
-            Scanner input = new Scanner(new File("numeros.txt"));
-            int cont = 0;
-            while(input.hasNextLine()){
-                data[cont] = Integer.parseInt(input.nextLine().trim());
-                cont++;
-            }
-            input.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }*/
-
-        for(int i = 0; i<50; i++){
-            data[i] = i+1;
-        }
-
-        Sorting.radixSort(data);
-        //Sorting.mergeSort(data, 0, data.length-1);
-        //Sorting.quickSort(data, 0, data.length-1);
-        //Sorting.radixSort(data);
-        //Sorting.bubbleSort(data);
-
-        for(int j = 0; j<data.length;j++){
-            System.out.println(data[j]+" ");
-        }
-        System.out.println();
-
+        assertArrayEquals(expected, data);
 
     }
 
