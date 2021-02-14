@@ -1,5 +1,3 @@
-package src;
-
 import java.io.*;
 import java.util.Scanner;
 
@@ -21,7 +19,7 @@ public class Main {
         Integer[] data;
 
         //parametro i se puede modificar para crear de 10 a 3000 listas.
-        for(int i = 10; i<= 11; i++) {
+        for(int i = 50; i<= 3000; i+=500) {
             generador.generar(i);
             data = new Integer[i];
             //intenta leer el archivo para ver el contenido y asignarlo a el array data.
@@ -40,10 +38,19 @@ public class Main {
 
             //los 5 tipos de sorts que se pueden realizar
 
+            System.out.println("Datos ordenados por gnome sort.");
             Sorting.gnomeSort(data, data.length);
+
+            //System.out.println("Datos ordenados por merge sort.");
             //Sorting.mergeSort(data, 0, data.length - 1);
+
+            //System.out.println("Datos ordenados por quick sort.");
             //Sorting.quickSort(data, 0, data.length - 1);
-           // Sorting.radixSort(data);
+
+            //System.out.println("Datos ordenados por radix sort.");
+            //Sorting.radixSort(data);
+
+            //System.out.println("Datos ordenados por bubble sort.");
             //Sorting.bubbleSort(data);
 
             // Imprime cada lista ordenada separada por un espacio.

@@ -1,5 +1,4 @@
 import org.junit.Test;
-import src.Sorting;
 
 import java.io.File;
 import java.util.Scanner;
@@ -22,19 +21,60 @@ public class SortingTest {
     @Test
     public void gnomeSort() {
 
-        Integer[] data = {100,78,66,300,2};
-        Integer[] expected = {2,66,78,100,300};
+        Generador generador = new Generador();
+        Integer[] data;
 
-        Sorting.gnomeSort(data,data.length);
+        //parametro i se puede modificar para crear de 10 a 3000 listas.
+        generador.generar(1000);
+        data = new Integer[1000];
+        //intenta leer el archivo para ver el contenido y asignarlo a el array data.
+        try {
+            Scanner input = new Scanner(new File("numeros.txt"));
+            int cont = 0;
+            while (input.hasNextLine()) { // por cada linea se lo asigna a data.
+                data[cont] = Integer.parseInt(input.nextLine().trim());
+                cont++;
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
-        assertArrayEquals(expected, data);
 
+        //los 5 tipos de sorts que se pueden realizar
+
+        Sorting.gnomeSort(data, data.length);
+
+        //System.out.println("Datos ordenados por merge sort.");
+        //Sorting.mergeSort(data, 0, data.length - 1);
+
+        //System.out.println("Datos ordenados por quick sort.");
+        //Sorting.quickSort(data, 0, data.length - 1);
+
+        //System.out.println("Datos ordenados por radix sort.");
+        //Sorting.radixSort(data);
+
+        //System.out.println("Datos ordenados por bubble sort.");
+        //Sorting.bubbleSort(data);
+
+        // Imprime cada lista ordenada separada por un espacio.
+        for (int j = 0; j < data.length; j++) {
+            System.out.println(data[j] + " ");
+        }
+        System.out.println();
     }
 
     /**
      * PostCondition: regresa true, si realmente funciona el mergeSort.**/
     @Test
     public void mergeSort() {
+        /*Integer[] data = {100,78,66,300,2};
+        Integer[] expected = {2,66,78,100,300};
+
+        Sorting.gnomeSort(data,data.length);
+
+        assertArrayEquals(expected, data);*/
+
         Integer[] data = {100,7,5,50,6};
         Integer[] expected = {5,6,7,50,100};
 
