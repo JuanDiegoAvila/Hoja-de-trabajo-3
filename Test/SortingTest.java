@@ -5,21 +5,34 @@ import java.io.File;
 import java.util.Scanner;
 import static org.junit.Assert.*;
 
+/*
+ * Juan Diego Avila Sastume    20090
+ * Jose Daniel Gonzalez        20293
+ * Hoja de trabajo 3: sorts      Clase: SortingTest.java
+ * 14 de febrero del 2021*/
+
+/**
+ * SortingTest es la clase que contiene los 5 tests de los distintos sorts.**/
 public class SortingTest {
 
     public Comparable<Integer>[] list;
+
+    /**
+     * PostCondition: regresa true, si realmente funciona el gnomeSort.**/
     @Test
     public void gnomeSort() {
 
-        Integer[] data = {1000,78,66,300,2};
-        Integer[] expected = {2,66,78,300,100};
+        Integer[] data = {100,78,66,300,2};
+        Integer[] expected = {2,66,78,100,300};
 
-        Sorting.mergeSort(data,0, data.length-1);
+        Sorting.gnomeSort(data,data.length);
 
         assertArrayEquals(expected, data);
 
     }
 
+    /**
+     * PostCondition: regresa true, si realmente funciona el mergeSort.**/
     @Test
     public void mergeSort() {
         Integer[] data = {100,7,5,50,6};
@@ -30,6 +43,8 @@ public class SortingTest {
         assertArrayEquals(expected, data);
     }
 
+    /**
+     * PostCondition: regresa true, si realmente funciona el quickSort.**/
     @Test
     public void quickSort() {
         Integer[] data = {30,27,5,100,6};
@@ -41,6 +56,8 @@ public class SortingTest {
 
     }
 
+    /**
+     * PostCondition: regresa true, si realmente funciona el radixSort.**/
     @Test
     public void radixSort() {
         Integer[] data = {100, 4560, 584, 63, 1200};
@@ -51,6 +68,8 @@ public class SortingTest {
 
     }
 
+    /**
+     * PostCondition: regresa true, si realmente funciona el bubbleSort.**/
     @Test
     public void bubbleSort() {
         Integer[] data = {2501, 488, 14, 233, 10000, 183};

@@ -2,9 +2,20 @@ package src;
 
 import java.util.*;
 
+/*
+ * Juan Diego Avila Sastume    20090
+ * Jose Daniel Gonzalez        20293
+ * Hoja de trabajo 3: sorts      Clase: Sorting.java
+ * 14 de febrero del 2021*/
+
+/**
+ * Sorting es la clase que contiene los 5 metodos distintos de sorts que son llamados desde el main.**/
 public class Sorting {
 
     //Codigo extraído de: https://www.geeksforgeeks.org/gnome-sort-a-stupid-one/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer
+     * Postcondition: ordena la lista de menor a mayor de forma adecuada.**/
     public static void gnomeSort(Comparable<Integer>[] list, int n){
         
         int index = 0;
@@ -12,7 +23,7 @@ public class Sorting {
         while(index < n){
             if(index == 0)
                 index++;
-            if(!(list[index].compareTo((int)list[index-1])  == -1))
+            if(!(list[index].compareTo((int)list[index-1])  == -1)) // si es negativo es menor
                 index++;
             else{
                 int temp = 0;
@@ -26,6 +37,9 @@ public class Sorting {
     }
     
     //Codigo extraído de: https://www.geeksforgeeks.org/merge-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer, high no es igual a 0.
+     * Postcondition: ordena la lista de menor a mayor de forma adecuada.**/
     public static void mergeSort(Comparable<Integer>[] list, int low, int high){
         
         if(low>=high){
@@ -42,6 +56,9 @@ public class Sorting {
     }
 
 //Codigo extraído de: https://www.geeksforgeeks.org/merge-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer.
+     * Postcondition: une a dos "sub arrays" en uno solo**/
     private static void merge(Comparable<Integer>[]list, int low, int middle, int high){
         int n1 = middle - low + 1;
         int n2 = high-middle;
@@ -87,6 +104,9 @@ public class Sorting {
     }
 
     //Codigo extraido de: https://www.geeksforgeeks.org/quick-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer, high no es igual a 0.
+     * Postcondition: ordena la lista de menor a mayor de forma adecuada.**/
     public static void quickSort(Comparable<Integer>[] list, int low, int high){
 
 
@@ -100,6 +120,9 @@ public class Sorting {
     }
 
     //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer.
+     * Postcondition: ordena la lista de menor a mayor de forma adecuada.**/
     public static void radixSort(Comparable<Integer>[] list){
         int m = Sorting.getMax(list);
 
@@ -109,6 +132,9 @@ public class Sorting {
     }
     
     //Codigo extraido de: https://www.geeksforgeeks.org/bubble-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer.
+     * Postcondition: ordena la lista de menor a mayor de forma adecuada.**/
     public static void bubbleSort(Comparable<Integer>[] list){
         int n = list.length;
         for(int i = 0; i < n-1;i++){
@@ -124,6 +150,9 @@ public class Sorting {
     }
 
     //Codigo extraido de: https://www.geeksforgeeks.org/quick-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer, high no es igual a 0.
+     * Postcondition: utiliza el pivote, ultimo elemento, y lo coloca en su posicion del array correcto, colocando elementos menores a su izquierda y mayores a su derecha.**/
     private static int partitionqS(Comparable<Integer>[] list, int low, int high){
         int pivot = (int) list[high];
         int i = (low-1); // es el indice del elemento mas pequeño.
@@ -147,6 +176,9 @@ public class Sorting {
 
     
     //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer.
+     * Postcondition: realizar un counting sort de la lista segun el digito exp**/
     private static void countSort(Comparable<Integer>[] list, int n, int exp){
         Comparable<Integer>[] output = new Integer[n];
         int i;
@@ -172,6 +204,9 @@ public class Sorting {
     }
 
     //Codigo extraido de: https://www.geeksforgeeks.org/radix-sort/
+    /**
+     * Precondition: list no esta vacia y es de tipo Integer.
+     * Postcondition: regresa el valor mas alto de list**/
     private static int getMax(Comparable<Integer>[] list){
         int n = list.length;
         int mx = (Integer) list[0];
